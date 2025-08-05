@@ -1,5 +1,7 @@
 import {Flagsmith} from 'flagsmith-nodejs'
 import * as core from '@actions/core'
+import {SSMClient,PutParameterCommand} from "@aws-sdk/client-ssm";
+
 /**
  * Reads a flag from flagsmith and returns its value.
  * The caller of this function is responsible for null-checking
