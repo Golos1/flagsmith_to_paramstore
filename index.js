@@ -4,7 +4,7 @@ import {Flagsmith} from 'flagsmith-nodejs'
  * The caller of this function is responsible for null-checking
  * and appropriate error handling.
  */
-export async function readFlag(flag_name) {
+export async function readFlag() {
     const flagsmith = new Flagsmith({
         environmentKey: core.getInput("FLAGSMITH_ENV_KEY"),
     })
@@ -26,7 +26,7 @@ async function main() {
     const flagName = core.getInput("FLAG_NAME");
     const flag_value =  await readFlag(flagName);
     if(flag_value === null) {
-        return;
+
     }
     else {
         core.setOutput("FLAG_VALUE", flag_value);
